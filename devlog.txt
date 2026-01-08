@@ -1,0 +1,214 @@
+App setup launcher:
+
+Core vision:
+1. What is this app for?: This app will allow users to build their own apps setup to be launched for any kind of work with
+   a single click.
+   
+2. Who is it for?: Any user that needs many apps to work, even i could use it.
+
+3. What is done suppoused to look like: An app that allows users to build and edit a list of apps that will be launched, 
+   each app will allow the use of arguments to run apps under specific settings. The apps list can be editted so users can
+   add, remove or change the order of the apps to be launched as well as its arguments and number of instances to be launched.
+
+	Done = App list CRUD, single app CRUD, Minimalistic UI.
+	
+High level features:
+1. Launch window.
+2. Entry list window.
+	1. Create app entry.
+	2. Edit app entry.
+	3. Remove app entry.
+	4. List app entries.
+
+Tasks:
+1. Launch window:
+	1. Design launch window.
+	2. Implement UI design.
+2. Entry list window:
+	1. Design app entry structure.
+	2. Design list view window.
+	3. Implement UI design.
+	4. Implement buttons on both launch and list view windows to switch views.
+	5. Design app entry view form window:
+		1. Implement UI design.
+		2. Design data serialization system:
+			1. Implement app entry structure.
+			2. Design app setup serialization structure.
+			3. Implement serialization system.
+		2. Display entry information.
+		3. Implement entry edition.
+			1. Validate fields.
+			2. Update entry.
+			3. Display success message.
+	6. Implement order switch logic.
+	7. Implement app entry deletion logic.
+3. Implement entry list validation.
+	1. Validate on start.
+4. Implement launch logic.
+5. Implement about section.
+	1. Design "about" window.
+	2. Implement UI design.
+
+TO DO:
+Apply visual styles if possible.
+
+Development log:
+[12/1/2025 12:52pm]: Right now i think the project will contain 6 scripts:
+	1. main.cs: Main launch script.
+	2. launch.cs: Launch window script.
+	3. apps_setup.cs: Entry list window script.
+	4. app.cs: App entry structure script.
+	5. app_create.cs: App entry creation window script.
+	6. app_view.cs: App entry view and edit window.
+	
+[12/1/2025 14:40pm]: Launch window UI was designed and is now implemented, buttons functionallity is pending.
+					 No visual style has been applied yet.
+
+[12/1/2025 15:15pm]: Apps setup window has been designed and list.cs window is ready to start UI implementation.
+
+[12/1/2025 15:18pm]: Apps setup window class ('list.cs') name has changed to "apps_setup.cs".
+
+[12/1/2025 18:42pm]: Both 'Launch' and 'App setup' windows have been implemented and can navigate between them.
+					 No logic has been implemented, no visual style has been implemented.
+					 
+[12/2/2025 11:57am]: App entry structure has been decided:
+					 - App name: App name as its shown on the .exe file,
+					 - Path: .exe file path,
+					 - Arguments: Execution arguments,
+					 - Instances: Number of instances to be launched
+
+[12/2/2025 12:16pm]: App entry creation UI was designed.
+
+[12/2/2025 13:57pm]: App entry creation form was implemented and can navigate between 'Launch', 'App setup' and 
+					 'Add app' forms.
+					 No logic has been imlpemented.
+					 
+[12/2/2025 14:09pm]: App entry structure was implemented, the class 'App' now exsists defined in App.cs.
+
+[12/2/2025 14:19pm]: A new instance of app can be created using the 'Add' button in the setup form. No serialization,
+					 , edition, removal or view functionallity has been implemented yet.
+					 
+[12/2/2025 14:24pm]: App information is now displayer when adding a new app to be validated before adding it to the
+					 app setup list.
+					 
+[12/2/2025 14:50pm]: Serialization system was written but needs to be tested.
+
+[12/2/2025 15:03pm]: Serialization system has been tested and is fully implemented.
+
+[12/2/2025 15:06pm]: Implemented logic that disables the launch button when no app setup data was found on boot.
+
+[12/2/2025 18:41pm]: App panels on the setup list are now properly placed.
+
+[12/2/2025 19:03pm]: App edition logic is now beign implemented, update logic on serialization system is not updating data
+					 though.
+					 
+[12/3/2025 11:46am]: App entry creation form UI was re-designed in order to make it compatible for editing entries.
+
+[12/3/2025 11:51am]: App entry creation form UI changes were succesfully implemented. 
+
+[12/3/2025 12:02am]: App entry edition logic was succesfully implemented.
+
+[12/3/2025 12:11pm]: App entry deletion logic was succesfully implemented.
+
+[12/3/2025 12:29pm]: App order switch logic was succesfully implemented.
+
+[12/3/2025 12:42pm]: Basic confirmation dialogs were implemented for entries delete or update operations.
+
+[12/3/2025 12:56pm]: Further app setup validation was implemented, so launch button will be disabled if no app data
+					 is found and will be enabled back if app data is found every time the launch form is focused.
+
+[12/3/2025 13:07pm]: Main launch logic was implemented and apps can now be launched properly. Further tests are needed.
+
+[12/3/2025 13:40pm]: 'About' section was designed and is now implemented.
+
+[12/3/2025 15:46pm]: Exception handling was implemented in launch logic.
+
+[12/3/2025 15:48pm]: Every operation functionallity is now implemented, ASL - App setup launcher can now be used.
+					 Further testing needed.
+					 UI styles could be useful.
+					 
+[12/3/2025 19:56pm]: Many improvements have been made:
+					 1. UI has been improved so it doesnt look like a generic windows app.
+					 2. The previous launch validation which included checking if the setup was empty everytime the main
+					    launch window was rendered, has been updated to a more simplistic and optimized solution which is
+						validate when the user click the 'Launch button'.
+					 3. Tooltips were added on the app creation/edition form to bring users further explanation without
+					    displaying all the information at once. This helps keep a minimalistic UI design.
+					 4. A "Empty setup" message is now displayed in the app setup window when no app data is found.
+					 
+					 TO DO:
+					 1. Exception handling window will be updated to be a modal window, so users may not lose focus on this
+					    exception warnings until they press the "OK" button.
+					 2. Design a multiple app setup support system and implement it if possible.
+
+[12/4/2025 12:34pm]: Exception handling window was updated to be a modal window.
+
+[12/4/2025 13:59pm]: Multiple app setup support system was designed. Implementation is on the way.
+					 
+					 TO DO:
+					 1. Implement new serialization system design.
+					 
+					 2. An selection box will be added to the launch window to select an app setup to launch. Last app 
+						setup selection will be remembered.
+					 
+					 3. If no app setup is selected when user clicks 'Launch apps' or 'View apps setup' a pop up message
+						will show up saying something like: "You havent selected an app setup yet, please select one.".
+					 
+					 4. If no app setup has been created when user clicks 'Launch apps' or 'View apps setup' a pop up
+						message will show saying something like: "No app setup data was found, would you like to 
+						create one?".
+						
+					 5. A new app setup creation form will be created.
+					 
+					 6. An app setup name field will be added to the app setup window as well as a button to appy changes
+					    made to the setup name.
+
+[12/4/2025 14:00pm]: A new class named 'AppSetup' was created.
+
+[12/4/2025 15:59pm]: New serialization system has been implemented.
+					 Selection box was added to launch window.
+					 Launch logic was updated to fit the new serialization system.
+					 
+					 TO DO:
+					 1. Implement dropdown and create setup button functionallity in setup creation window.
+
+[12/4/2025 17:29pm]: Dropdown selection event logic has been implemented.
+
+[12/4/2025 20:18pm]: TO DO:
+					 Make last selected setup be remembered, an out of range exception is beign thrown.
+					 Test app creation, editing, deletion and switch ordering.
+					 
+[12/5/2025 12:25pm]: The bug that made the launch window throw an out of bounds has been fixed.
+					 A 'Edit setup' button has been added to allow users to modify a setup name.
+					 
+[12/5/2025 12:28pm]: The 'EditSetup' function has been implemented. It will open the 'Create setup' window which will
+					 be updated to recognize when the user is editing or creating a new setup. This will make the code
+					 a little bit simplier.
+					 This logic that will make the 'Create setup' window recognize ediding and creation is still to be
+					 implemented though.
+					 
+[12/5/2025 12:57pm]: App setups can now be edited as well.
+					 There is a bug that when an app setup is deleted the combo box will not refresh so it still displays
+					 the previously deleted setup. If that option is selected a null exception will be thrown.
+					 
+[12/5/2025 12:57pm]: The bug that prevented the setups list to be refreshed after deleting a setup has been fixed.
+					 Further tests have taken place and a new but has been found when deleten an app from a setup.
+					 
+[12/5/2025 14:22pm]: The ASL - App setup launcher is now fully functional.
+					 TO DO:
+						1. Update the 'about' section to include information about new features.
+
+[12/5/2025 14:38pm]: A new 'about' description has been designed.
+
+[12/5/2025 15:55pm]: App container auto scroll is not working, needs to be fixed.
+
+[12/5/2025 19:33pm]: App container is now scrollable.
+					 App setup window flashes a little when refreshing over a certain number of apps and lists.
+					 
+[12/5/2025 20:11pm]: Flickering in apps container needs to be fixed (If possible). A possible code fixing it has been placed
+					 in notepad.
+					 
+[12/8/2025 13:52pm] The project: 'ASL - App setup launcher' can now be considered finished.
+					The flickering effect when opening the setup window is gone, now it takes a little pause (around 1 second) 
+					while loading due to a little stress when creating and placing the controls dynamically. But that can be
+					accepted.
