@@ -5,7 +5,7 @@
 
 How to build
 ---
-Although you can download las build, you can also build you own code. Go to the "scripts" folder and open windows console there and run the following command:
+Although you can download last build, you can also build youy own code. Go to the "scripts" folder and open windows console there and run the following command:
 ```
 C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe /t:winexe /out:AppSetupLauncher.exe main.cs launch.cs apps_setup.cs app_create.cs app.cs serialization.cs about.cs exception.cs app_setup.cs setup_create.cs
 ```
