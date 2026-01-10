@@ -15,10 +15,10 @@ How it works
 ---
 <img width="496" height="300" alt="image" src="https://github.com/user-attachments/assets/76cc3042-1004-46b3-9280-4fb14158af40" />
 
-ASL let you build you own list of apps to be launched, we call thess lists 'setups'.
-Each app on these list can have:
+ASL let you build you own list of apps to be launched, we call these lists 'app setups'.
+Each app on these lists can have:
 - A custom name
-- Windows based launch parameters (For advanced users)
+- Windows based execution parameters (For advanced users)
 - Instances count: How many instances should be executed.
 
 Click "View app setup" and the App setup window will show up, there you can create, edit or delete app setups. There is no count limits so you can have as many setups and can be as large as a computer can handle, just dont blow you computer trying to launch thousands of apps.
